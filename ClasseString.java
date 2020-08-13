@@ -13,11 +13,11 @@ public class ClasseString {
 		// substring (): Retorna uma copia de caractere de uma string apartir de dois indices
 		//               inteiros especificos.
 		
-		// trim(): Remove todos os espaços em branco que aparecem no inicio ou final da String
-		// replace(): Utilizada para substituição de caracteres individuais em uma determinada String
+		// trim(): Remove todos os espaÃ§os em branco que aparecem no inicio ou final da String
+		// replace(): Utilizada para substituiÃ§Ã£o de caracteres individuais em uma determinada String
 		// startsWith(): Retorna true se uma String inicia com prefixo
 		
-		String nome = new String(" Natalia ");
+		String nome = new String(" Julio ");
 		String nome2 = "Juliano";
 		
 		JOptionPane.showMessageDialog(null , nome);
