@@ -1,0 +1,247 @@
+package desafiosanteriores;
+
+import java.util.ArrayList;
+
+import java.util.List;
+import javax.swing.JOptionPane;
+
+public class DesafioDupla {
+	
+	static List<String> nomeFuncionarios = new ArrayList<String>();
+	static List<String> profissaoFuncionarios = new ArrayList<String>();
+	static List<String> nomeClientes = new ArrayList<String>();
+	static List<String> telefoneClientes = new ArrayList<String>();
+	static List<String> servicos = new ArrayList<String>();
+	static List<Double> ValorServicos = new ArrayList<Double>();
+	static List<String> vendas = new ArrayList<String>();
+	static List<Double> valorVenda = new ArrayList<Double>();
+	
+	public static void main(String[] args) {
+		
+		StringBuffer menu = new StringBuffer();
+		StringBuffer lista = new StringBuffer();
+		
+		double valor = 0.0;
+		String nomeFuncionario = "";
+		String profissaoFuncionario = "";
+		int resposta = -1;
+		
+		while (resposta != 0) {
+			menu = new StringBuffer();
+			menu.append("1 - Cadastrar funcionario\n");
+			menu.append("2 - Alterar funcionario\n");
+			menu.append("3 - Listar funcionarios\n");
+			menu.append("4 - Cadastrar cliente\n");
+			menu.append("5 - Alterar cliente\n");
+			menu.append("6 - Listar clientes\n");
+			menu.append("7 - Cadastrar serviço\n");
+			menu.append("8 - Alterar serviço\n");
+			menu.append("9 - Listar serviço\n");
+			menu.append("10 - Efetuar venda\n");
+			menu.append("11 - Listar vendas\n");
+			menu.append("0- Sair\n");
+			
+			resposta = jopInt(menu.toString());
+			
+			switch (resposta) {
+			case 1: //1- CADASTRA FUNCIONARIOS
+				nomeFuncionario = jopStr("Qual o nome do funciónario:");
+				profissaoFuncionario = jopStr("Qual a profissão do funciónario:");
+				nomeFuncionarios.add(nomeFuncionario);
+				profissaoFuncionarios.add(profissaoFuncionario);
+				jop("Funciónario cadastrado com sucesso!");
+				break;
+			case 2: // Alterar Funcionario
+				
+				if (!nomeFuncionarios.isEmpty()) {
+					jop("Não há nenhum funciónario na lista!");
+					
+					
+				} else {
+					nomeFuncionario = jopStr("Digite o nome do funciónario que deseja alterar: ");
+					for (int i = 0; i < nomeFuncionarios.size(); i++) {
+						     if (nomeFuncionarios.get(i).equalsIgnoreCase(nomeFuncionario)) {
+								      nomeFuncionario = jopStr("Digite o novo nome do Funciónario: ");
+								      nomeFuncionarios.set(i, nomeFuncionario);
+								      
+								      profissaoFuncionario = jopStr("Deseja alterar a profissão? ( S / N )");
+								      if (profissaoFuncionario.equalsIgnoreCase("s")) {
+										 profissaoFuncionario = jopStr("Digite a nova profissão do funciónario");
+										 profissaoFuncionarios.set(i, profissaoFuncionario);
+									}
+								      jop("Funciónario alterado com sucesso");
+							}
+						}
+				}
+				break;
+			case 3: // Listar Funciónarios
+				if (!nomeFuncionarios.isEmpty()) {
+					lista = new StringBuffer();
+					for (int i = 0; i < nomeFuncionarios.size(); i++) {
+						lista.append(nomeFuncionarios.get(i) +"\n");}
+					jop(lista.toString());
+				} else {
+					jop("Lista vazia");
+				}
+	        break;
+			case 4: // Cadastra cliente
+				nomeFuncionario = jopStr("Qual o nome do Cliente: ");
+				profissaoFuncionario = jopStr("Digite o telefone do Cliente: ");
+				nomeClientes.add(nomeFuncionario);
+				telefoneClientes.add(profissaoFuncionario);
+				jop("Cliente cadastrado com sucesso!");
+				
+				break;
+			case 5: // Alterar Cliente                     // AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+                    if (!nomeFuncionarios.isEmpty()) {
+                    	jop("Não há nenhum funciónario na lista!");
+					
+					
+				} else {
+					nomeFuncionario = jopStr("Digite o nome do Cliente que deseja alterar: ");
+					for (int i = 0; i < nomeClientes.size(); i++) {
+						     if (nomeClientes.get(i).equalsIgnoreCase(nomeFuncionario)) {
+								      nomeFuncionario = jopStr("Digite o novo nome do Cliente: ");
+								      nomeClientes.set(i, nomeFuncionario);
+								      								      								       
+										 profissaoFuncionario = jopStr("Digite o telefone do cliente: ");
+										 telefoneClientes.set(i, profissaoFuncionario);
+									
+								      jop("Cliente modificado com sucesso");
+							}
+						}
+				}
+				break;
+			case 6: // Listar Cliente
+				if (!nomeClientes.isEmpty()) {
+					lista = new StringBuffer();
+					for (int i = 0; i < nomeClientes.size(); i++) {
+						lista.append(nomeClientes.get(i) +"\n");}
+					jop(lista.toString());
+				} else {
+					jop("Lista vazia");
+				}
+				
+				break;
+			case 7: // Cadastro serviço
+				nomeFuncionario = jopStr("Qual serviço quer disponibilizar?: ");
+				valor = jopInt("Qual o valor do serviço:");
+				servicos.add(nomeFuncionario);
+				ValorServicos.add(valor);
+				jop("Cliente cadastrado com sucesso!");
+				break;
+			case 8: // Alterar serviço
+            if (!servicos.isEmpty()) {
+					
+					nomeFuncionario = jopStr("Digite o nome do Serviço que deseja alterar: ");
+					for (int i = 0; i < servicos.size(); i++) {
+						     if (servicos.get(i).equalsIgnoreCase(nomeFuncionario)) {
+								      nomeFuncionario = jopStr("Digite o novo nome do Serviço: ");
+								      servicos.set(i, nomeFuncionario);
+								      								      								       
+								      profissaoFuncionario = jopStr("Digite o valor do serviço: ");
+									  ValorServicos.set(i, Double.parseDouble(profissaoFuncionario));
+
+									
+								      jop("Serviço modificado com sucesso");
+							}
+						}
+					
+				} else {
+					jop("Não há nenhum funciónario na lista!");
+				}
+				
+				break;
+			case 9: // Listar serviço
+				if (!servicos.isEmpty()) {
+					lista = new StringBuffer();
+					for (int i = 0; i < servicos.size(); i++) {
+						lista.append(servicos.get(i) +"\n");}
+					jop(lista.toString());
+				} else {
+					jop("Lista vazia");
+				}
+				break;
+			case 10: // Efetuar venda
+				nomeFuncionario = jopStr("Qual venda quer efetuar?: ");
+				profissaoFuncionario = jopStr("Qual o valor da venda: ");
+
+				vendas.add(nomeFuncionario);
+				valorVenda.add(Double.parseDouble(profissaoFuncionario));
+				jop("Venda efetuada com sucesso!");
+				break;
+			case 11: // Listar vendas
+				if (!vendas.isEmpty()) {
+					
+					
+					lista = new StringBuffer();					
+					for (int i = 0; i < vendas.size(); i++) {
+						
+						lista.append(vendas.get(i) + ", valor: " + String.format(valorVenda.get(i) + "\n", "%.2f"));
+                        
+					}
+					jop(lista.toString());
+				} else {
+					jop("Lista vazia");
+				}
+				break;
+			case 0:
+				resposta = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?");
+				break;
+			default:
+				jop("ERRO!\n COMANDO INVALIDO!");
+				break;
+			}
+			
+}
+		
+		
+		
+	}
+
+	public static String jopStr(String mensagem) {
+		   String retorno = "";
+		  return JOptionPane.showInputDialog(mensagem);
+	}
+	
+	public static final Integer jopInt(String mensagem) {
+		    Integer numero = 0;
+		return Integer.parseInt(JOptionPane.showInputDialog(mensagem));
+	}
+	
+	public static final void jop(String mensagem) {
+		   JOptionPane.showMessageDialog(null, mensagem);
+		
+	}
+	
+	  public static final Double jopDou(String msg) {
+		
+		double valor = 0.0;
+		return Double.parseDouble(JOptionPane.showInputDialog(msg));
+	}
+	
+	
+	/**
+	 * @author Juliano Nunes,Rodrigo
+	 * @since 2020-06-15
+	  	 */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
